@@ -4,7 +4,7 @@ import (
 	"VetiCare/dependencies"
 	"VetiCare/infrastructure"
 	"fmt"
-
+	"os"
 	"github.com/joho/godotenv"
 	"github.com/rs/cors"
 	"log"
