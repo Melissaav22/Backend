@@ -37,5 +37,5 @@ func main() {
 	}
 
 	fmt.Println("Servidor en http://localhost:8080")
-	log.Fatal(http.ListenAndServe(port, handler))
+	log.Fatal(http.ListenAndServe(":"+port, handler))
 }
