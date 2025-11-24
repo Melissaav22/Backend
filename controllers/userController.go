@@ -50,7 +50,7 @@ func (uc *UserController) Register(w http.ResponseWriter, r *http.Request) {
 	// 	Only calls the service to do business logic
 	user, err := uc.UserService.Register(&userDTO)
 	if err != nil {
-		http.Error(w, "El correo o dui ingresados ya estan en uso", http.StatusInternalServerError)
+		http.Error(w, "El correo o dui ingresados ya estan en uso"+ err.Error(), http.StatusInternalServerError)
 		return
 	}
 
