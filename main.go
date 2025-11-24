@@ -23,11 +23,12 @@ func main() {
 	application.InitRouter(deps)
 
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"*"},
-		AllowedMethods:   []string{"GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"},
-		AllowedHeaders:   []string{"Authorization", "Content-Type", "X-Admin-Secret"},
-		AllowCredentials: true,
-	})
+    AllowedOrigins:   []string{"https://pet-vet-front-deploy.vercel.app"},
+    AllowedMethods:   []string{"GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"},
+    AllowedHeaders:   []string{"Authorization", "Content-Type", "X-Admin-Secret"},
+    AllowCredentials: true,
+})
+
 
 	handler := c.Handler(application.Router)
 
