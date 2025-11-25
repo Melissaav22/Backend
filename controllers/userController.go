@@ -50,7 +50,7 @@ func (uc *UserController) Register(w http.ResponseWriter, r *http.Request) {
 	// 	Only calls the service to do business logic
 	user, err := uc.UserService.Register(&userDTO)
 	if err != nil {
-		http.Error(w, "El correo o dui ingresados ya estan en uso"+ err.Error(), http.StatusInternalServerError)
+		http.Error(w, "El correo o dui ingresados ya estan en uso"+err.Error(), http.StatusInternalServerError)
 		return
 	}
 
@@ -184,7 +184,7 @@ func (uc *UserController) UpdateUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if updateInput.FullName == nil && updateInput.Email == nil && updateInput.Phone == nil && updateInput.DUI == nil {
+	if updateInput.FullName == nil && updateInput.Email == nil && updateInput.Phone == nil && updateInput.DUI == nil && updateInput.Pf == nil {
 		http.Error(w, "No se enviaron campos para actualizar", http.StatusBadRequest)
 		return
 	}
@@ -192,6 +192,8 @@ func (uc *UserController) UpdateUser(w http.ResponseWriter, r *http.Request) {
 	err := validators.ValidateUpdatedUserDTO(updateInput)
 	if err != nil {
 		http.Error(w, "Error en el formato: "+err.Error(), http.StatusBadRequest)
+		return
+
 	}
 
 	if err := uc.UserService.UpdateUser(id, updateInput); err != nil {

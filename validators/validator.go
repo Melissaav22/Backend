@@ -99,6 +99,18 @@ func ValidateUpdatedEmail(email *string) error {
 	return nil
 }
 
+func ValidateUpdatedPf(pf *int) error {
+	if pf == nil {
+		return nil
+	}
+	err := validateInstance.Var(*pf, "gte=1,lte=8")
+	if err != nil {
+		return err
+	}
+	return nil
+
+}
+
 func ValidateUpdatedDUI(dui *string) error {
 	if dui == nil {
 		return nil

@@ -12,7 +12,7 @@ type User struct {
 	FullName     string    `gorm:"size:100;not null" json:"full_name"`
 	DUI          string    `gorm:"column:dui;size:10;unique;not null" json:"dui"`
 	Phone        string    `gorm:"size:9" json:"phone"`
-	Email        string    `gorm:"size:100;unique;not null" json:"email"`
+	Email        string    `gorm:"size:100;unique;noet null" json:"email"`
 	PasswordHash string    `gorm:"size:175" json:"password_hash,omitempty"`
 	RoleID       int       `gorm:"not null" json:"role_id"`
 	StatusID     int       `gorm:"not null;default:1" json:"status_id"`
@@ -23,7 +23,7 @@ type User struct {
 
 	Role UserRole `gorm:"foreignKey:RoleID;references:ID" json:"role"`
 
-	Pf int `gorm:"column:pf;default:1" json:"pf"`
+	Pf int `gorm:"column:pf;default:2" json:"pf"`
 }
 
 type VetAppointments struct {

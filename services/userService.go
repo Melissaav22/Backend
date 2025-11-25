@@ -135,6 +135,11 @@ func (s *UserService) UpdateUser(id string, input dto.UpdateUserDTO) error {
 		}
 		updateFields["email"] = *input.Email
 	}
+
+	if input.Pf != nil {
+		updateFields["pf"] = *input.Pf
+	}
+
 	return s.Repo.Update(id, updateFields)
 }
 
